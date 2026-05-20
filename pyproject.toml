@@ -1,0 +1,32 @@
+[build-system]
+requires = ["setuptools>=68"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "campus-rag-lab"
+version = "0.1.0"
+description = "A recruiter-friendly RAG observability lab for grounded university policy QA."
+readme = "README.md"
+requires-python = ">=3.10"
+dependencies = [
+  "google-generativeai>=0.8.0",
+  "numpy>=1.24",
+  "pandas>=2.0",
+  "pydantic>=2.0",
+  "pypdf>=4.0",
+  "python-dotenv>=1.0",
+]
+
+[project.optional-dependencies]
+dev = ["pytest>=8.0", "ruff>=0.6"]
+ui = ["streamlit>=1.32"]
+
+[project.scripts]
+campus-rag = "campus_rag_lab.cli:main"
+
+[tool.setuptools.packages.find]
+where = ["src"]
+
+[tool.ruff]
+line-length = 100
+target-version = "py310"
